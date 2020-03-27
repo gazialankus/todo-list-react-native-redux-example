@@ -102,10 +102,12 @@ const SHOW_ALL = 'SHOW_ALL';
 const SHOW_ACTIVE = 'SHOW_ACTIVE';
 const SHOW_COMPLETED = 'SHOW_COMPLETED';
 
+// sample actions. not actually used.
 const action1 = { type: ADD_TODO, text: 'Go to swimming pool' };
 const action2 = { type: TOGGLE_TODO, index: 1 };
 const action3 = { type: SET_VISIBILITY_FILTER, filter: SHOW_ALL };
 
+// reducers
 function visibilityFilter(state = 'SHOW_ALL', action) {
   if (action.type === SET_VISIBILITY_FILTER) {
     return action.filter;
@@ -154,7 +156,7 @@ class AddTodo extends Component {
 
   buttonWasClicked = () => {
     this.props.dispatch({ type: ADD_TODO, text: this.state.text });
-  }
+  };
 
   render() {
     return (
@@ -244,7 +246,7 @@ const mapDispatchToProps_TodoList = dispatch => {
       dispatch({ type: TOGGLE_TODO, index: id });
     }
   }
-}
+};
 
 const VisibleTodoList = connect(
     mapStateToProps_TodoList,
@@ -256,7 +258,7 @@ const mapStateToProps_FilterLink = (state, ownProps) => {
   return {
     active: ownProps.filter === state.visibilityFilter
   }
-}
+};
 
 const mapDispatchToProps_FilterLink = (dispatch, ownProps) => {
   return {
